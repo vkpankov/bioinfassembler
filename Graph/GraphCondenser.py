@@ -1,12 +1,14 @@
-from Graph import Edge
-from . import DebrujinGraph 
+from .DebrujinGraph import Edge, DebrujinGraph
 
 class GraphCondenser():
+
     def __init__(self, graph: DebrujinGraph):
+
         self.graph = graph
         f = DebrujinGraph()
 
     def FindMaxNonBranchingPaths(self):
+
         paths = []
         for vertex in self.graph.vertices.values():
             if(not vertex.IsMInNOutVertex(1, 1) and len(vertex.outcoming_edges) > 0):
@@ -19,6 +21,7 @@ class GraphCondenser():
         return paths
     
     def Condense(self):
+
         paths = self.FindMaxNonBranchingPaths()
         for path in paths:
 
